@@ -20,20 +20,23 @@ namespace SearchAlgor
 
             return -1;
         }
-        
-        public static int Perform(string searchValue, List<string> listToSearch)
+
+        public static int Perform(string searchName, List<string> listToSearch)
         {
-            for(int i = 0; i < listToSearch.Count; i++)
+            for (int i = 0; i < listToSearch.Count; i++)
             {
-                if (string.Compare(listToSearch[i], searchValue) == 0)
+                if (string.Compare(listToSearch[i], searchName) == 0)
                 {
                     return i;
-                }   
-            }  
-       
+                }
+            }
+
             return -1;
         }
+
+       
     }
+}
 
     
-}
+

@@ -14,12 +14,17 @@ namespace SearchAlgor
         static void Main(string[] args)
         {
             List<double> listOfDoubles = new List<double>();
+            List<string> listOfNames = new List<string> { "Carrie", "Bob", "Kelly", "Phil", "Sam", "Pauline", "Killian" };
+
+            PrintNameList(listOfNames);
+            RequestNameSearch(listOfNames);
+            
 
             PopulateListWithRandomDoubles(ref listOfDoubles, 10);
             PrintList(listOfDoubles);
 
             RequestSearch(listOfDoubles);
-            PrintList(listOfDoubles);
+            
 
             Console.ReadKey();
         }
@@ -44,11 +49,30 @@ namespace SearchAlgor
             }
         }
 
+        static void RequestNameSearch(List<string> list)
+        {
+            string searchName;
+            Console.WriteLine(" What name would you like to search for? ");
+            searchName = Console.ReadLine();
+
+                int index = LinearSearch.Perform(searchName, list);
+                //int index = BinarySearch.Perform(searchValue, list);
+                if (index < 0)
+                {
+                    Console.WriteLine(" Not Found ");
+                }
+                else
+                {
+                    Console.WriteLine("Found at: " + index);
+                }
+            
+        }
+
         static void PopulateListWithRandomDoubles(ref List<double> list, int size)
         {
             for (int i = 0; i < size; i++)
             {
-                double twoDigitDouble = Double.Parse(randomGenerator.NextDouble().ToString("0.00"));
+                double twoDigitDouble = Double.Parse(randomGenerator.NextDouble().ToString("0.0000"));
                 list.Add(twoDigitDouble);
             }
             
@@ -66,6 +90,18 @@ namespace SearchAlgor
 
             Console.WriteLine("\nEnd \n");
         
+        }
+        static void PrintNameList(List<string> list)
+        {
+            Console.WriteLine("\n\nList Print: \n");
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine("  " + list[i].ToString());
+            }
+
+            Console.WriteLine("\nEnd \n");
+
         }
     }
 }

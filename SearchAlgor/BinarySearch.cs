@@ -19,7 +19,7 @@ namespace SearchAlgor
 
                 if (listToSearch[mid] == searchValue)
                 {
-                    return mid;
+                    return mid; 
                 }
                 else if (listToSearch[mid] < searchValue)
                 {
